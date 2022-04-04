@@ -3,9 +3,12 @@ import {
   Button,
   Container,
   Group,
+  NativeSelect,
+  NumberInput,
   Radio,
   RadioGroup,
   SegmentedControl,
+  Select,
   Text,
   TextInput,
 } from '@mantine/core';
@@ -25,11 +28,63 @@ const Create2 = () => {
         />
         <Group direction='column' align='stretch'>
           <TextInput label='Rewards link name:' />
-          <RadioGroup orientation='vertical' label='Reward Type:' required>
-            <Radio value='coupon' label='coupon' />
-            <Radio value='voucher' label='voucher' />
-            <Radio value='promo' label='promo' />
-          </RadioGroup>
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <span>Reward Type:</span>
+            <label
+              htmlFor='coupon'
+              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <input type='radio' name='r-type' id='coupon' value='coupon' />
+              <span
+                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                Coupon{' '}
+                <NumberInput
+                  min={0}
+                  max={100}
+                  placeholder='10'
+                  sx={{ width: 'auto' }}
+                />
+                % discount
+              </span>
+            </label>
+            <label
+              htmlFor='voucher'
+              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <input type='radio' name='r-type' id='voucher' value='voucher' />
+              <span
+                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                Voucher
+                <NumberInput
+                  min={0.0}
+                  placeholder='10'
+                  sx={{ width: 'auto' }}
+                />
+                <NativeSelect data={['USD', 'EUR', 'INR', 'PNY', 'JPN']} />
+              </span>
+            </label>
+            <label
+              htmlFor='promo'
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                // for mobile align items should be flex start
+                gap: '10px',
+              }}>
+              <input type='radio' name='r-type' id='promo' value='promo' />
+              <span
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  flexWrap: 'wrap',
+                }}>
+                Promo Buy
+                <TextInput placeholder='Any Beef Burger' />
+                Get
+                <TextInput placeholder='1 Small Fries Free' />
+              </span>
+            </label>
+          </div>
           <DatePicker
             label='Valid Until: '
             placeholder='Pick date'
