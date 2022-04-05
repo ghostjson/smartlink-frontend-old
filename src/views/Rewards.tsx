@@ -5,16 +5,12 @@ import {
   Group,
   NativeSelect,
   NumberInput,
-  Radio,
-  RadioGroup,
   SegmentedControl,
-  Select,
-  Text,
   TextInput,
 } from '@mantine/core';
-import { Calendar, DatePicker } from '@mantine/dates';
+import { DatePicker } from '@mantine/dates';
 
-const Create2 = () => {
+const Rewards = () => {
   return (
     <Container>
       <Group direction='column' align='stetch'>
@@ -98,4 +94,4 @@ const Create2 = () => {
   );
 };
 
-export default Create2;
+export default Rewards;
